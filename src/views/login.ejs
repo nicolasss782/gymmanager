@@ -1,12 +1,108 @@
-<h2 class="title">Login</h2>
-<form method="post" action="/login">
-  <div class="field">
-    <label class="label">Username</label>
-    <div class="control"><input class="input" type="text" name="username"></div>
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login - Gym Manager</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(135deg, #8e44ad, #2980b9);
+    }
+
+    .login-card {
+      background: #fff;
+      padding: 40px 30px;
+      border-radius: 16px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+      width: 100%;
+      max-width: 360px;
+      text-align: center;
+    }
+
+    .login-card h1 {
+      margin-bottom: 20px;
+      color: #333;
+    }
+
+    .input-group {
+      margin-bottom: 15px;
+      text-align: left;
+    }
+
+    .input-group label {
+      font-size: 14px;
+      color: #444;
+      margin-bottom: 5px;
+      display: block;
+    }
+
+    .input-group input {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 16px;
+    }
+
+    .btn-login {
+      width: 100%;
+      background-color: #8e44ad;
+      color: white;
+      padding: 12px;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      margin-top: 10px;
+    }
+
+    .btn-login:hover {
+      background-color: #732d91;
+    }
+
+    .footer-text {
+      margin-top: 20px;
+      font-size: 14px;
+      color: #555;
+    }
+
+    .footer-text a {
+      color: #8e44ad;
+      text-decoration: none;
+    }
+
+    .footer-text a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <div class="login-card">
+    <h1>Gym Manager</h1>
+    <form method="POST" action="/login">
+      <div class="input-group">
+        <label for="username">Email o Username</label>
+        <input type="text" id="username" name="username" required>
+      </div>
+
+      <div class="input-group">
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" required>
+      </div>
+
+      <button type="submit" class="btn-login">Accedi</button>
+    </form>
+
+    <div class="footer-text">
+      Password dimenticata? <a href="#">Recuperala qui</a>
+    </div>
   </div>
-  <div class="field">
-    <label class="label">Password</label>
-    <div class="control"><input class="input" type="password" name="password"></div>
-  </div>
-  <button class="button is-primary">Entra</button>
-</form>
+</body>
+</html>
