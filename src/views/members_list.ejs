@@ -1,0 +1,12 @@
+<h1 class="title">Membri</h1>
+<a class="button is-primary" href="/members/new">+ Nuovo Membro</a>
+<table class="table is-fullwidth">
+<tr><th>Nome</th><th>Telefono</th><th>Attivo</th></tr>
+<% members.forEach(m=>{ %>
+<tr>
+  <td><a href="/members/<%= m.id %>"><%= m.first_name %> <%= m.last_name %></a></td>
+  <td><%= m.phone %></td>
+  <td><%= m.active ? 'Si' : 'No' %></td>
+</tr>
+<% }) %>
+</table>

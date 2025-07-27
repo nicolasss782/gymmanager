@@ -1,0 +1,25 @@
+<h1 class="title">Nuovo/Modifica Membro</h1>
+<form method="post" action="<%= member.id ? '/members/'+member.id+'/edit' : '/members/new' %>">
+  <div class="field">
+    <label class="label">Nome</label>
+    <div class="control"><input class="input" name="first_name" value="<%= member.first_name||'' %>" required></div>
+  </div>
+  <div class="field">
+    <label class="label">Cognome</label>
+    <div class="control"><input class="input" name="last_name" value="<%= member.last_name||'' %>" required></div>
+  </div>
+  <div class="field">
+    <label class="label">Telefono</label>
+    <div class="control"><input class="input" name="phone" value="<%= member.phone||'' %>" required></div>
+  </div>
+  <div class="field">
+    <label class="checkbox">
+      <input type="checkbox" name="active" <%= member.active?'checked':'' %> > Attivo
+    </label>
+  </div>
+  <div class="field">
+  <label class="label">Email</label>
+  <div class="control"><input class="input" name="email" value="<%= member.email||'' %>"></div>
+</div>
+  <button class="button is-success">Salva</button>
+</form>

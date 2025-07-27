@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <title>GymManager</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+<nav class="navbar is-dark">
+  <div class="navbar-brand">
+    <a class="navbar-item" href="/">GymManager</a>
+  </div>
+  <div class="navbar-menu">
+    <div class="navbar-start">
+      <% if (user){ %>
+        <a class="navbar-item" href="/">Dashboard</a>
+        <a class="navbar-item" href="/members">Membri</a>
+      <% } %>
+    </div>
+    <div class="navbar-end">
+      <% if (user){ %>
+        <div class="navbar-item">Ciao <%= user.username %></div>
+        <a class="navbar-item" href="/logout">Logout</a>
+      <% } %>
+    </div>
+  </div>
+</nav>
+
+<section class="section">
+  <div class="container">
+    <% if (locals.error) { %>
+      <div class="notification is-danger"><%= locals.error %></div>
+    <% } %>
+
+    <% if (locals.success) { %>
+      <div class="notification is-success"><%= locals.success %></div>
+    <% } %>
+
+    <%- body %>
+  </div>
+</section>
+</body>
+</html>

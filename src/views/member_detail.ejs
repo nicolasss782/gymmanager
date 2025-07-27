@@ -1,0 +1,32 @@
+<h1 class="title"><%= member.first_name %> <%= member.last_name %></h1>
+<p>Telefono: <%= member.phone %></p>
+<a class="button is-link" href="/subscriptions/new/<%= member.id %>">+ Aggiungi Abbonamento</a>
+
+<h2 class="subtitle">Abbonamenti</h2>
+<table class="table is-fullwidth">
+  <tr>
+    <th>Inizio</th>
+    <th>Fine</th>
+    <th>Durata</th>
+    <th>Status</th>
+    <th>Azione</th>
+  </tr>
+
+  <% if (subs.length === 0) { %>
+    <tr><td colspan="5">Nessuno</td></tr>
+  <% } else { %>
+    <% subs.forEach(function(s){ %>
+      <tr>
+        <td><%= s.start_date %></td>
+        <td><%= s.end_date %></td>
+        <td><%= s.duration_value %> <%= s.duration_unit %></td>
+        <td><%= s.status === 'paid' ? 'Pagato' : 'Da pagare' %></td>
+        <td>
+          <% if (s.status === 'due') { %>
+            <a class="button is-small is-success" href="/subscriptions/<%= s.id %>/paid?notify=1">Segna Pagato</a>
+          <% } %>
+        </td>
+      </tr>
+    <% }); %>
+  <% } %>
+</table>

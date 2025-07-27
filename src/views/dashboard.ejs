@@ -1,0 +1,36 @@
+<h1 class="title">Dashboard</h1>
+
+<h2 class="subtitle">Scaduti (da pagare)</h2>
+<table class="table is-fullwidth">
+  <tr><th>Membro</th><th>Fine</th><th>Durata</th><th>Azione</th></tr>
+
+  <% if (due.length === 0) { %>
+    <tr><td colspan="4">Nessuno</td></tr>
+  <% } else { %>
+    <% due.forEach(function(s){ %>
+      <tr>
+        <td><a href="/members/<%= s.member_id %>"><%= s.member_name %></a></td>
+        <td><%= s.end_date %></td>
+        <td><%= s.duration_value %> <%= s.duration_unit %></td>
+        <td><a class="button is-small is-success" href="/subscriptions/<%= s.id %>/paid?notify=1">Segna Pagato</a></td>
+      </tr>
+    <% }) %>
+  <% } %>
+</table>
+
+<h2 class="subtitle">In scadenza entro 7 giorni</h2>
+<table class="table is-fullwidth">
+  <tr><th>Membro</th><th>Fine</th><th>Durata</th></tr>
+
+  <% if (coming.length === 0) { %>
+    <tr><td colspan="3">Nessuno</td></tr>
+  <% } else { %>
+    <% coming.forEach(function(s){ %>
+      <tr>
+        <td><a href="/members/<%= s.member_id %>"><%= s.member_name %></a></td>
+        <td><%= s.end_date %></td>
+        <td><%= s.duration_value %> <%= s.duration_unit %></td>
+      </tr>
+    <% }) %>
+  <% } %>
+</table>
